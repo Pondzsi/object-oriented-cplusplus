@@ -45,5 +45,7 @@ int main() {
     //    std::cout << currentLineVector.front() << "," << currentLineVector.back() << std::endl;
     //}
 
+    std:: cout << "test" << std:: endl;
+
     return 0;
 }
