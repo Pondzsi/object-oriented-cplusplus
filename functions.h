@@ -13,8 +13,7 @@ double getArrayOfRealNumbersAverage(double arrayOfRealNumbers[], int numberOfEle
 double getStandardDeviationOfRealNumbers(double arrayOfRealNumbers[], int numberOfElements);
 double* getTwoHighestNumberFromArrayOfRealNumbers(double arrayOfRealNumbers[], int numberOfElements);
 std::string capitalizeWords(std::string text);
-std::string increaseAlphabetChar(std::string text);
-std::string decreaseAlphabetChar(std::string text);
+std::string modifyAlphabetCharBy(std::string text, int modifyBy);
 int splitSentenceToWords(std::string sentence);
 std::vector<std::string> splitCSVLine(const std::string& text);
 
