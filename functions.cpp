@@ -39,7 +39,9 @@ void testIsSquare(const char *filename)
     {
         getline(inputFile, line);
         if (line.empty())
+        {
             continue;
+        }
 
         int x1 = stoi(line.substr(0, line.find(' ')));
         int y1 = stoi(line.substr(1, line.find(' ')));
@@ -68,4 +70,26 @@ void testIsSquare(const char *filename)
         std::cout << ' ' << *it;
     }
 }
+bool theSame(Point a, Point b) { return a.getX() == b.getX() && a.getY() == b.getY() ? true : false; }
+double *minMaxDistance(Point *pointArray, int numberOfElements)
+{
+    double minimum = 10000000;
+    double maximum = 0;
+    for (int index = 1; index < numberOfElements; ++index)
+    {
+        for (int jndex = index + 1; jndex < numberOfElements; ++jndex)
+        {
 
+            double currentDistance = distance(pointArray[index], pointArray[jndex]);
+            if (currentDistance < minimum)
+            {
+                minimum = currentDistance;
+            }
+            if (currentDistance > maximum)
+            {
+                maximum = currentDistance;
+            }
+        }
+    }
+    return new double[2]{minimum, maximum};
+}
