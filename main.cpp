@@ -1,70 +1,21 @@
-#include <iostream>
+#include "Point.h"
 #include "functions.h"
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <vector>
+using namespace std;
 
-int main()
+#define N = 100000;
+
+int main(int argc, char **argv)
 {
-
-    ///1
-
-    // for (auto currentNumber = 0; currentNumber != 127; ++currentNumber) {
-    //     std::cout << currentNumber << "- has " << countBits(currentNumber) << " 1 bit" << std::endl;
-    // }
-
-    ///2
-
-    // int seven = 7, order = 1; //111
-    // std::cout << setBit(seven,order) << " " << seven << std::endl;
-
-    ///3
-
-    // const int FIVE = 5;
-    // double arrayOfRealNumbers[FIVE] = {12, 76, 23, 9, 5};
-    // std::cout << getArrayOfRealNumbersAverage(arrayOfRealNumbers, FIVE) << std::endl;
-
-    ///4
-
-    // const int FIVE = 5;
-    // double arrayOfRealNumbers[FIVE] = {12, 76, 23, 9, 5};
-    // std::cout << getStandardDeviationOfRealNumbers(arrayOfRealNumbers, FIVE) << std::endl;
-
-    ///5
-
-    // const int FIVE = 5;
-    // double arrayOfRealNumbers[FIVE] = {12, 76, 23, 9, 5};
-    // double* twoHighestNumber = getTwoHighestNumberFromArrayOfRealNumbers(arrayOfRealNumbers, FIVE);
-    // std::cout << twoHighestNumber[0] << " and " << twoHighestNumber[1] << std::endl;
-
-    ///6
-
-    // std::string lowercaseString = "";
-    // std::cout << "Please, enter string: ";
-    // std::getline (std::cin, lowercaseString);
-    // std::cout << capitalizeWords(lowercaseString) << std::endl;
-
-    ///7
-
-    // std::string niceString = "ABCDEFG";
-    // std::cout << modifyAlphabetCharBy(niceString, 1) << std::endl;
-    // std::cout << modifyAlphabetCharBy(niceString, -1) << std::endl;
-
-    ///8
-
-    // std::string line;
-    // std::ifstream inputFile("inputfile.csv");
-    // std::vector<std::string> currentLineVector;
-    // while (!inputFile.eof())
-    // {
-    //     getline(inputFile, line);
-    //     currentLineVector = splitCSVLine(line);
-    //     std::cout << line << std::endl;
-    //     ///std::cout << result.size() << std::endl;
-    //     ///std::cout << result.back() << std::endl;
-    // }
-    // inputFile.close();
-
-    return 0;
+    // Point p1(2, 3);
+    // cout << "p1( " << p1.getX() << "," << p1.getY() << ")" << endl;
+    // Point p2(100, 200);
+    // cout << "p2( " << p2.getX() << "," << p2.getY() << ")" << endl;
+    // Point *pp1 = new Point(300, 400);
+    // Point *pp2 = new Point(500, 1000);
+    // cout << "pp1( " << pp1->getX() << "," << pp1->getY() << ")" << endl;
+    // cout << "pp2( " << pp2->getX() << "," << pp2->getY() << ")" << endl;
+    // delete pp1;
+    // delete pp2;
+    // return (EXIT_SUCCESS);
+    //testIsSquare("points.txt");
 }

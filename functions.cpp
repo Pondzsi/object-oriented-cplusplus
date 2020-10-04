@@ -1,104 +1,71 @@
-//
-// Created by Rolland on 9/25/2020.
-//
-
-#include "functions.h"
-#include <cmath>
-#include <algorithm>
-#include <string>
 #include <iostream>
-#include <vector>
-#include <sstream>
+#include <string>
+#include <bits/stdc++.h>
+#include "Point.h"
 
-int countBits(unsigned int number)
+double distance(const Point &a, const Point &b) { return sqrt(pow(b.getX() - a.getX(), 2) + pow(b.getY() - a.getY(), 2)); }
+bool isSquare(const Point &a, const Point &b, const Point &c, const Point &d)
 {
-    //if number is 0 then it can go back else countBits for number shifted by 1 bit
-    return number ? (number & 1) + countBits(number >> 1) : 0;
-}
+    double distAB = distance(a, b);
+    double distAC = distance(a, c);
+    double distAD = distance(a, d);
+    double distBC = distance(b, c);
+    double distBD = distance(b, d);
+    double distCD = distance(c, d);
 
-int setBit(int &number, unsigned int order)
-{
-    (number | (1 << (order - 1)));
-    return (order < 32) ? 1 : 0;
-}
-
-double getArrayOfRealNumbersAverage(double arrayOfRealNumbers[], int numberOfElements)
-{
-    int sumOfElements = 0;
-    for (int index = 0; index < numberOfElements; index++)
+    if (distAB <= 0 || distAC <= 0 || distAD <= 0 || distBC <= 0 || distBD <= 0 || distCD <= 0)
     {
-        sumOfElements += arrayOfRealNumbers[index];
-    }
-    return numberOfElements ? double(sumOfElements / numberOfElements) : NAN;
-}
-
-double getStandardDeviationOfRealNumbers(double arrayOfRealNumbers[], int numberOfElements)
-{
-    double standardDeviation = 0.0;
-    double average = getArrayOfRealNumbersAverage(arrayOfRealNumbers, numberOfElements);
-
-    for (int index = 0; index < numberOfElements; index++)
-    {
-        standardDeviation += pow(arrayOfRealNumbers[index] - average, 2);
+        return false;
     }
 
-    return sqrt(standardDeviation / numberOfElements);
-}
-
-double *getTwoHighestNumberFromArrayOfRealNumbers(double arrayOfRealNumbers[], int numberOfElements)
-{
-    static double returnArray[2];
-
-    if (numberOfElements == 0)
+    if (distAB == distCD)
     {
-        returnArray[0] = NAN;
-        returnArray[1] = NAN;
+        if (distAC == distBC)
+        {
+            if (distAC == distBD)
+            {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+void testIsSquare(const char *filename)
+{
+    std::vector<bool> squares;
+    std::string line;
+    std::ifstream inputFile(filename);
+    while (!inputFile.eof())
+    {
+        getline(inputFile, line);
+        if (line.empty())
+            continue;
 
-        return returnArray;
+        int x1 = stoi(line.substr(0, line.find(' ')));
+        int y1 = stoi(line.substr(1, line.find(' ')));
+
+        int x2 = stoi(line.substr(2, line.find(' ')));
+        int y2 = stoi(line.substr(3, line.find(' ')));
+
+        int x3 = stoi(line.substr(4, line.find(' ')));
+        int y3 = stoi(line.substr(5, line.find(' ')));
+
+        int x4 = stoi(line.substr(6, line.find(' ')));
+        int y4 = stoi(line.substr(7, line.find(' ')));
+
+        Point point1 = Point(x1, y1);
+        Point point2 = Point(x2, y2);
+        Point point3 = Point(x3, y3);
+        Point point4 = Point(x4, y4);
+
+        squares.push_back(isSquare(point1, point2, point3, point4));
     }
 
-    if (numberOfElements == 1)
+    inputFile.close();
+
+    for (std::vector<bool>::iterator it = squares.begin(); it != squares.end(); ++it)
     {
-        returnArray[0] = arrayOfRealNumbers[0];
-        returnArray[1] = arrayOfRealNumbers[0];
-
-        return returnArray;
+        std::cout << ' ' << *it;
     }
-
-    std::sort(arrayOfRealNumbers, arrayOfRealNumbers + numberOfElements);
-    returnArray[0] = arrayOfRealNumbers[numberOfElements - 2];
-    returnArray[1] = arrayOfRealNumbers[numberOfElements - 1];
-
-    return returnArray;
 }
 
-std::string capitalizeWords(std::string text)
-{
-    for (int index = 0; index < text.length(); ++index)
-    {
-        text[index] = (index == 0) ? toupper(text[index]) : (text[index - 1] == ' ') ? toupper(text[index]) : text[index];
-    }
-    return text;
-}
-
-std::string modifyAlphabetCharBy(std::string text, int modifyBy)
-{
-    for (int index = 0; index < text.length(); ++index)
-    {
-        text[index] += modifyBy;
-    }
-    return text;
-}
-
-std::vector<std::string> splitCSVLine(const std::string &text)
-{
-    std::vector<std::string> result;
-
-    std::stringstream s_stream(text);
-
-    std::string substr;
-
-    getline(s_stream, substr, ',');
-    
-    return result;
-}
