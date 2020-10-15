@@ -1,5 +1,5 @@
-#ifndef PONTHALMAZ_H_INCLUDED
-#define PONTHALMAZ_H_INCLUDED
+#ifndef POINTSET_H_INCLUDED
+#define POINTSET_H_INCLUDED
 
 #include "Point.h"
 #include <vector>
@@ -23,6 +23,6 @@ public:
 };
 
 
-#endif // PONTHALMAZ_H_INCLUDED
+#endif // POINTSET_H_INCLUDED
 
 

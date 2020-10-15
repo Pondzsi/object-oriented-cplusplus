@@ -6,23 +6,23 @@
 
 using namespace std;
 
-static bool sort_using_greater_than(double u, double v)
-{
-   return u > v;
-}
+// static bool sort_using_greater_than(double u, double v)
+// {
+//    return u > v;
+// }
 
-double median(vector<double> vectorOfDoubles)
-{
-    sort(vectorOfDoubles.begin(), vectorOfDoubles.end(), sort_using_greater_than);
+// double median(vector<double> vectorOfDoubles)
+// {
+//     sort(vectorOfDoubles.begin(), vectorOfDoubles.end(), sort_using_greater_than);
 
-    int myVectorSize = vectorOfDoubles.size();
+//     int myVectorSize = vectorOfDoubles.size();
 
-    if (myVectorSize % 2 != 0) {
-        return vectorOfDoubles.at(myVectorSize/2);
-    }
+//     if (myVectorSize % 2 != 0) {
+//         return vectorOfDoubles.at(myVectorSize/2);
+//     }
 
-    return (vectorOfDoubles.at((myVectorSize - 1)/2) + vectorOfDoubles.at((myVectorSize + 1)/2)) / 2.0; 
-}
+//     return (vectorOfDoubles.at((myVectorSize - 1)/2) + vectorOfDoubles.at((myVectorSize + 1)/2)) / 2.0; 
+// }
 
 int main(int argc, char **argv)
 {
@@ -44,8 +44,8 @@ int main(int argc, char **argv)
         numPoints = numPoints << 1;
     }
 
-    vector<double> myVector{ 1,2,5,4,3,1,4,3,3,4,3,5,1 };
-    cout << median(myVector) << endl;
+    // vector<double> myVector{ 1,2,5,4,3,1,4,3,3,4,3,5,1 };
+    // cout << median(myVector) << endl;
 
     return 0;
 }
